@@ -47,7 +47,7 @@ class VAE(nn.Module):
         
     def encode(self, x):
         h = F.relu(self.fc1(x))
-        return self.fc2(h), self.fc3(h)
+        return self.fc2(h), self.fc3(h) #fc2:average(μ), fc3:log dispartion(logσ²)
     
     def reparameterize(self, mu, log_var):
         std = torch.exp(log_var/2)
