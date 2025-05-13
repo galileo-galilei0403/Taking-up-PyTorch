@@ -1,0 +1,15 @@
+S = {S[1],...,S[n]}
+exp: S[10] = [1,4,7]
+
+
+K[S[i]] = (W_k @ x[j]) (for j in S[i])
+V[S[i]] = (W_v @ x[j]) (for j in S[i])
+a(x[i],S[i]) = softmax((W_q @ x[i]) @ K[S[i]].T / sqrt(d)) @ V[S[i]]
+
+for j in range(n):
+    if floor(j/l) == floor(i/l):
+        A_1[i].append(j)
+
+t = l - c
+for j in range(t,l+1):
+    A_2[i].append(j)
